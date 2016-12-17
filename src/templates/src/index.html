@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+<head>
+<title>Drawing FreeCad</title>
+</head>
+<body>
+
+<h1>Water tank specifications</h1><br /><br />
+<form action="{% url 'specs' %}" method="POST" id="form" >
+    <fieldset id="field" class="form-group" >
+        {% csrf_token %}
+                <input type="number" name="col_height" id="col_height">Column Height<br/>
+                <input type="number" name="plinth_width" id="plinth_width">Plinth width<br/>
+                <input type="number" name="beam_width" id="beam_width">Beam width<br/>
+                <input type="text" name="cylinder_diameter" id="cylinder_diameter">Cylinder diameter<br/>
+                <input type="number" name="roof_diameter" id="roof_diameter">Roof diameter<br/>
+                <input type="text" name="lid_diameter" id="lid_diameter">Lid diameter<br/>
+                <input type="submit" value="submit">
+</form>
+
+</body>
+</html>
