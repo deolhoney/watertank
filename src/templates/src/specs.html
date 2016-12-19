@@ -1,5 +1,101 @@
-{% for key, value in lists.items %} 
-{{ key }} : {{ value }}</br>
-{% endfor %}
+<html>                                                                  
+<head>                                                                  
+<title>Watertank</title>                                                
+{% load static %}                                                       
+<link rel="stylesheet" type="text/css" href="{% static 'materialize/css/materialize.min.css' %}" media="screen,projection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+                                                                        
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script type="text/javascript" src="{% static 'jquery-3.1.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'materialize/js/materialize.min.js' %}"></script>
+<style>                                                                 
+  body {                                                                
+    display: flex;                                                      
+    min-height: 100vh;                                                  
+    flex-direction: column;                                             
+  }                                                                     
+                                                                        
+  main {                                                                
+    flex: 1 0 auto;                                                     
+  }                                                                     
+.row{                                                                   
+    margin-left: 0;                                                     
+    margin-right: 0;                                                    
+    }                                                                   
+</style>                                                                
+                                                                        
+</head>                                                                 
+                                                                        
+<body>                                                                  
+<script type="text/javascript">                                                            
+$(document).ready(function() {                                          
+        $('select').material_select();                                  
+        });                                                               
+                                                                        
+$( document ).ready(function() {                                        
+   $(".button-collapse").sideNav();                                       
+  });                                                                   
+                                                                        
+</script>                                                               
+<div class="navbar-fixed">                                              
+    <nav>                                                               
+    <div class="nav-wrapper">                                           
+        <a href="/index" class="brand-logo" style="margin-left:20px; font-size:160%">Watertank</a>
+</div>                                                                  
+</nav> 
+</div>
+<p style="font-size:160%;text-align:center;">Watertank specifications</p>
 
-<a href="{% url 'download' %}">Download</a>
+         <center>                                                            
+        <table class="highlight" style="width:70%;">                    
+            <thead>                                                     
+                <tr>                                                    
+                    <th data-field="id">Attribute</th>                  
+                    <th data-field="name">Dimensions in metre</th>      
+                </tr>                                                   
+            </thead>                                                    
+            <tbody>                                                     
+            {% for key, value in lists.items %} 
+            <tr>                                                        
+                <td>{{ key }}</td>                                  
+                <td>{{ value }}<td>                                   
+                    </tr>                                               
+                    {% endfor %}                                        
+                    </tbody>                                            
+                </table>                                                
+            </center>                                                   
+                                                                        
+            <div class="row">                                           
+                <center>                                                
+                    <a class="btn waves-effect waves-light red" href="{% url 'download' %}" style="margin:2%;">Download</a>
+                </center>                                               
+            </div>
+  <main>                                                                
+    <div class="container">                                             
+  </main>                                                               
+                                                                        
+                                                                        
+        <footer class="page-footer">                                    
+          <div class="container">                                       
+            <div class="row">                                           
+              <div class="col l6 s12">                                  
+                <h5 class="white-text">Watertank</h5>                   
+                <p class="grey-text text-lighten-4">Fully parameteric model</p>
+              </div>                                                    
+              <div class="col l4 offset-l2 s12">                        
+                <h5 class="white-text">Contact Us</h5>                  
+                <ul>                                                    
+                  <li><a class="grey-text text-lighten-3" href="https://github.com/GreatDevelopers">Great Developers</a></li>
+                </ul>                                                   
+              </div>                                                    
+            </div>                                                      
+          </div>                                                        
+          <div class="footer-copyright">                                
+            <div class="container">                                     
+                Copyright © 2016 Great Developers                       
+            </div>                                                      
+          </div>                                                        
+        </footer> 
+
+</body>
+</html>

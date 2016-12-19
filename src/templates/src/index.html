@@ -1,22 +1,134 @@
-{% load static %}
 <html>
 <head>
-<title>Drawing FreeCad</title>
-</head>
-<body>
+<title>Watertank</title>
+{% load static %}                                                       
+<link rel="stylesheet" type="text/css" href="{% static 'materialize/css/materialize.min.css' %}" media="screen,projection" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+                                                                        
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script type="text/javascript" src="{% static 'jquery-3.1.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'materialize/js/materialize.min.js' %}"></script>
+<style>                                                                 
+  body {                                                                
+    display: flex;                                                      
+    min-height: 100vh;                                                  
+    flex-direction: column;                                             
+  }                                                                     
+                                                                        
+  main {                                                                
+    flex: 1 0 auto;                                                     
+  }                                                                     
+.row{                                                                   
+    margin-left: 0;                                                     
+    margin-right: 0;                                                    
+    }                                                                   
+</style>                                                                
+                                                                        
+</head>                                                                 
+                                                                        
+<body>                                                                  
+<script type="text/javascript">                                                            
+$(document).ready(function() {                                          
+        $('select').material_select();                                  
+        });                                                               
+                                                                        
+$( document ).ready(function() {                                        
+   $(".button-collapse").sideNav();                                       
+  });                                                                   
+                                                                        
+</script>                                                               
+<div class="navbar-fixed">                                              
+    <nav>                                                               
+    <div class="nav-wrapper">                                           
+        <a href="/index" class="brand-logo" style="margin-left:20px; font-size:160%">Watertank</a>
+</div>                                                                  
+</nav>                                                                  
+</div>
+<p style="font-size:160%;text-align:center;">Enter watertank specifications</p>
 
-<h1>Water tank specifications</h1><br /><br />
-<form action="{% url 'specs' %}" method="POST" id="form" >
-    <fieldset id="field" class="form-group" >
-        {% csrf_token %}
-                <input type="number" name="col_height" id="col_height">Column Height<br/>
-                <input type="number" name="plinth_width" id="plinth_width">Plinth width<br/>
-                <input type="number" name="beam_width" id="beam_width">Beam width<br/>
-                <input type="text" name="cylinder_diameter" id="cylinder_diameter">Cylinder diameter<br/>
-                <input type="number" name="roof_diameter" id="roof_diameter">Roof diameter<br/>
-                <input type="text" name="lid_diameter" id="lid_diameter">Lid diameter<br/>
-                <input type="submit" value="submit">
+<div class="row">                                                       
+                                                                        
+    <form class="col s12" action="{% url 'specs' %}" method="POST">     
+        {% csrf_token %}                                                
+        <div class="row">                                               
+            <div class="input-field col s8 offset-s2">                  
+                <input id="col_height" name="col_height" type="number" value=170>
+                <label for="stories">Column Height</label>                    
+            </div>                                                      
+                <i class="tiny material-icons tooltipped" style="margin-top: 30px;" data-position="right" data-delay="50" data-tooltip="Enter the number of column height">info_outline</i>
+        </div>                                                          
+        <div class="row">                                               
+            <div class="input-field col s8 offset-s2">                  
+                <input id="plinth_width" name="plinth_width" type="number" value=60>
+                <label for="dep_of_foun">Plinth width</label>    
+            </div>                                                      
+            <i class="tiny material-icons tooltipped" style="margin-top: 30px;" data-position="right" data-delay="50" data-tooltip="Enter the length of Plinth width">info_outline</i>
+        </div>                                                          
+        <div class="row">                                               
+            <div class="input-field col s8 offset-s2">                  
+                <input id="beam_width" name="beam_width" type="number" value=50>
+                <label for="plinth_lev">Beam width</label>            
+            </div>                                                      
+            <i class="tiny material-icons tooltipped" style="margin-top: 30px;" data-position="right" data-delay="50" data-tooltip="Enter the beam width">info_outline</i>
+        </div>                                                          
+                                                                        
+        <div class="row">                                               
+            <div class="input-field col s8 offset-s2">                  
+                <input id="cylinder_diameter" name="cylinder_diameter" type="number" value=120>
+                <label for="cclear_height" data-error="wrong">Cylinder diameter</label>
+            </div>                                                      
+            <i class="tiny material-icons tooltipped" style="margin-top: 30px;" data-position="right" data-delay="50" data-tooltip="Enter the cylinder diameter">info_outline</i>
+        </div>                        
+        <div class="row">                                               
+            <div class="input-field col s8 offset-s2">                  
+                <input id="roof_diameter" name="roof_diameter" type="number" value=60>
+                <label for="plinth_lev">Roof diameter</label>            
+            </div>                                                      
+            <i class="tiny material-icons tooltipped" style="margin-top: 30px;" data-position="right" data-delay="50" data-tooltip="Enter the roof diameter">info_outline</i>
+        </div>                                                          
+                                                                        
+        <div class="row">                                               
+            <div class="input-field col s8 offset-s2">                  
+                <input id="lid_diameter" name="lid_diameter" type="number" value=32>
+                <label for="cclear_height" data-error="wrong">Lid diameter</label>
+            </div>                                                      
+            <i class="tiny material-icons tooltipped" style="margin-top: 30px;" data-position="right" data-delay="50" data-tooltip="Enter the lid diameter">info_outline</i>
+        </div>                        
+
+<center>                                                                
+<div class="">                                                          
+         <button class="btn waves-effect waves-light red" type="submit">Submit</button>
+    </div>                                                              
+</center> 
+
 </form>
+</div>
+  <main>                                                                
+    <div class="container">                                             
+  </main>                                                               
+                                                                        
+                                                                        
+        <footer class="page-footer">                                    
+          <div class="container">                                       
+            <div class="row">                                           
+              <div class="col l6 s12">                                  
+                <h5 class="white-text">Watertank</h5>                         
+                <p class="grey-text text-lighten-4">Fully parameteric model</p>
+              </div>                                                    
+              <div class="col l4 offset-l2 s12">                        
+                <h5 class="white-text">Contact Us</h5>                  
+                <ul>                                                    
+                  <li><a class="grey-text text-lighten-3" href="https://github.com/GreatDevelopers">Great Developers</a></li>
+                </ul>                                                   
+              </div>                                                    
+            </div>                                                      
+          </div>                                                        
+          <div class="footer-copyright">                                
+            <div class="container">                                     
+                Copyright © 2016 Great Developers                       
+            </div>                                                      
+          </div>                                                        
+        </footer> 
 
 </body>
 </html>
